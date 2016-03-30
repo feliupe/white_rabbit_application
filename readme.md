@@ -10,6 +10,7 @@ To the wonderful opportunity to work at Html24 as a backend developer. You have 
 ### Components
 When you have completed this test succesfully, you will ~~hopefully~~ have a basic understanding of:
 
+* git
 * Docker
 * PHP
 * Very simple webservices
