@@ -1,6 +1,6 @@
 # White Rabbit
 
-To the wonderful opportunity to work at Html24 as a backend developer. You have to complete this lovely little test.
+To have the wonderful opportunity to work at Html24 as a backend developer. You have to complete this lovely little test.
 
 * Fork this project
 * Create your solution
