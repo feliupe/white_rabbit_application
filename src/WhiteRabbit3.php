@@ -2,7 +2,10 @@
 
 class WhiteRabbit3
 {
-
+    /**
+     * TODO Goto Test/WhiteRabbit3Test and write some tests that this method will fail
+     * You are not allowed to change this method ;)
+     */
     public function multiplyBy($amount, $multiplier){
         $estimatedResult = $amount * $multiplier;
 
