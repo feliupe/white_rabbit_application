@@ -8,27 +8,29 @@
  */
 class WhiteRabbit
 {
-    /**
-     * Returns a letter
-     */
-    public function findMedianLetterInFile($filePath, &$occurrences){
-        //TODO implement this!
-        return "foo";
+    public function findMedianLetterInFile($filePath)
+    {
+        return array("letter"=>$this->findMedianLetter($this->parseFile($filePath),$occurrences),"count"=>$occurrences);
     }
 
     /**
-     * Returns an integer
+     * Parse the input file for letters.
+     * @param $filePath
      */
-    public function findOccurencesOfLetterInFile($filePath, $letter){
+    private function parseFile ($filePath)
+    {
         //TODO implement this!
-        return "bar";
     }
 
     /**
-     * Returns a letter
+     * Return the letter whose occurrences are the median.
+     * @param $parsedFile
+     * @param $occurrences
      */
-    public function findMostUsedLetterInFile($filePath, &$occurrences){
+    private function findMedianLetter($parsedFile, &$occurrences)
+    {
+        $occurrences = 3;
+        return "c";
         //TODO implement this!
-        return "test";
     }
 }

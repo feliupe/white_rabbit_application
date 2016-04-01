@@ -29,52 +29,14 @@ class WhiteRabbitTest extends PHPUnit_Framework_TestCase
      * @dataProvider medianProvider
      */
     public function testMedian($expected, $file){
-        $this->assertEquals($expected, $this->whiteRabbit->findMedianLetterInFile($file, $ocu));
-    }
-
-    /**
-     * @dataProvider medianOccurrencesProvider
-     */
-    public function testMedianOccurrences($expected, $file){
-        $this->whiteRabbit->findMedianLetterInFile($file, $ocu);
-        $this->assertEquals($expected, $ocu);
-    }
-
-    /**
-     * @dataProvider occurrencesProvider
-     */
-    public function testOccurrences($expected, $file, $letter){
-        $this->assertEquals($expected, $this->whiteRabbit->findOccurencesOfLetterInFile($file, $letter));
+        $this->assertEquals($expected, $this->whiteRabbit->findMedianLetterInFile($file));
     }
 
     public function medianProvider(){
         return array(
-            array("a", $this->file1),
-            array("h", $this->file2),
-            array(" ", $this->file3)
+            array(array("letter" => "c", "count" => 3), $this->file1),
+            array(array("letter" => "c", "count" => 3), $this->file2),
+            array(array("letter" => "c", "count" => 3), $this->file3)
         );
     }
-
-    public function medianOccurrencesProvider(){
-        return array(
-            array(10, $this->file1),
-            array(5, $this->file2),
-            array(1, $this->file3)
-        );
-    }
-
-    public function occurrencesProvider(){
-        return array(
-            array(5, $this->file1, "a"),
-            array(5, $this->file1, "b"),
-            array(5, $this->file1, "c"),
-            array(99, $this->file2, "a"),
-            array(99, $this->file2, "b"),
-            array(99, $this->file2, "c"),
-            array(150, $this->file3, "a"),
-            array(150, $this->file3, "b"),
-            array(150, $this->file3, "c"),
-        );
-    }
-
 }
