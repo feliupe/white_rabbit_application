@@ -38,7 +38,7 @@ class WhiteRabbit2Test extends PHPUnit_Framework_TestCase
         );
 
         $test3 = array(
-            array("1" => 2, "2" => 1, "5" => 1, "10" => 1, "20" => 0, "50" => 0, "100" => 0),
+            array("1" => 0, "2" => 2, "5" => 1, "10" => 1, "20" => 0, "50" => 0, "100" => 0),
             19
         );
 

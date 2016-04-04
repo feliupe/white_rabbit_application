@@ -11,17 +11,11 @@ class WhiteRabbitTest extends PHPUnit_Framework_TestCase
 {
     /** @var WhiteRabbit */
     private $whiteRabbit;
-    private $file1;
-    private $file2;
-    private $file3;
 
     public function setUp()
     {
-        parent::setUp();
         $this->whiteRabbit = new WhiteRabbit();
-        $this->file1 = "testfile.txt";
-        $this->file2 = "testfile2.txt";
-        $this->file3 = "testfile3.txt";
+        parent::setUp();
     }
 
     //SECTION FILE !
@@ -29,14 +23,17 @@ class WhiteRabbitTest extends PHPUnit_Framework_TestCase
      * @dataProvider medianProvider
      */
     public function testMedian($expected, $file){
-        $this->assertEquals($expected, $this->whiteRabbit->findMedianLetterInFile($file));
+        $result = $this->whiteRabbit->findMedianLetterInFile($file);
+        $this->assertTrue(in_array($result, $expected));
     }
 
     public function medianProvider(){
         return array(
-            array(array("letter" => "c", "count" => 3), $this->file1),
-            array(array("letter" => "c", "count" => 3), $this->file2),
-            array(array("letter" => "c", "count" => 3), $this->file3)
+            array(array(array("letter" => "m", "count" => 9240), array("letter" => "f", "count" => 9095)), __DIR__ ."/../txt/text1.txt"),
+            array(array(array("letter" => "w", "count" => 13333), array("letter" => "m", "count" => 12641)), __DIR__ ."/../txt/text2.txt"),
+            array(array(array("letter" => "w", "count" => 2227), array("letter" => "g", "count" => 2187)), __DIR__ ."/../txt/text3.txt"),
+            array(array(array("letter" => "w", "count" => 3049)), __DIR__ ."/../txt/text4.txt"),
+            array(array(array("letter" => "z", "count" => 858)), __DIR__ ."/../txt/text5.txt")
         );
     }
 }
