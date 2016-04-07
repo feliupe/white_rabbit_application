@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace test;
 
 require_once(__DIR__ . "/../src/WhiteRabbit.php");
 

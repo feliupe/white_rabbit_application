@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace test;
 
 require_once(__DIR__ . "/../src/WhiteRabbit3.php");
 
@@ -24,13 +24,13 @@ class WhiteRabbit3Test extends PHPUnit_Framework_TestCase
      * @dataProvider multiplyProvider
      */
     public function testMultiply($expected, $amount, $multiplier){
-        $this->assertNotEquals($expected, $this->whiteRabbit3->multiplyBy($amount, $multiplier));
+        $this->assertEquals($expected, $this->whiteRabbit3->multiplyBy($amount, $multiplier));
     }
 
     public function multiplyProvider(){
         return array(
-            array(5, 2, 2),
-            array(5, 3, 4)
+            array(4, 2, 2),
+            array(6, 3, 2)
         );
     }
 }

@@ -2,4 +2,4 @@ FROM phpunit/phpunit
 
 COPY . /white_rabbit
 
-ENTRYPOINT phpunit /white_rabbit/Test
+ENTRYPOINT phpunit /white_rabbit/test
