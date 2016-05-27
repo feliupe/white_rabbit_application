@@ -32,6 +32,7 @@ class WhiteRabbit3Test extends PHPUnit_Framework_TestCase
       $test2 = array(6, 3, 2);
       $test3 = array(350, 7, 50);
       $test4 = array(24.4, 5.5, 4.4);
+      $test5 = array(-20, -5, 4);
 
       $tests = array();
 
