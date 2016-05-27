@@ -9,16 +9,40 @@ class WhiteRabbit2
      * You can assume that $amount will be an int
      */
     public function findCashPayment($amount){
-        if($amount == 26){
-            return array(
-                '1'   => 1,
-                '2'   => 0,
-                '5'   => 1,
-                '10'  => 0,
-                '20'  => 1,
-                '50'  => 0,
-                '100' => 0
-            );
+
+      $payment = array(
+          '1'   => 0,
+          '2'   => 0,
+          '5'   => 0,
+          '10'  => 0,
+          '20'  => 0,
+          '50'  => 0,
+          '100' => 0
+      );
+
+      if ($amount <= 0){
+
+        return $payment;
+      }
+
+      $coins = array(1,2,5,10,20,50,100);
+
+      $greatestValue = end($coins);
+
+      while ($amount != 0){
+
+        while ($amount >= $greatestValue){
+
+          $payment[$greatestValue]++;
+
+          $amount -= $greatestValue;
         }
+
+        $greatestValue = prev($coins);
+      }
+
+      return $payment;
     }
 }
+
+?>
