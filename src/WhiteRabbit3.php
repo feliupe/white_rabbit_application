@@ -23,3 +23,4 @@ class WhiteRabbit3
         return round($amount);
     }
 }
+?>

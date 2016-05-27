@@ -16,7 +16,6 @@ class WhiteRabbit3Test extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->whiteRabbit3 = new WhiteRabbit3();
-
     }
 
     //SECTION FILE !
@@ -28,9 +27,27 @@ class WhiteRabbit3Test extends PHPUnit_Framework_TestCase
     }
 
     public function multiplyProvider(){
-        return array(
-            array(4, 2, 2),
-            array(6, 3, 2)
-        );
+
+      $test1 = array(4, 2, 2);
+      $test2 = array(6, 3, 2);
+      $test3 = array(350, 7, 50);
+      $test4 = array(24.4, 5.5, 4.4);
+
+      $tests = array();
+
+      array_push($tests, $test1, $test2, $test3,$test4);
+
+      // Other tests
+      // $size = 100;
+      //
+      // for ($i=-$size; $i < $size; $i++) {
+      //
+      //   for ($j= -$size; $j < $size; $j++) {
+      //
+      //     array_push($tests, array($i*$j, $i, $j));
+      //   }
+      // }
+
+      return $tests;
     }
 }
