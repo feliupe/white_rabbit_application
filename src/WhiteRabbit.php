@@ -50,4 +50,9 @@ class WhiteRabbit
         // ASCII to char
         return chr($medianLetter);
     }
+
+    private function findMedianLetterOptimal($parsedFile, &$occurrences)
+    {
+
+    }
 }
