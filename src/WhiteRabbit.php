@@ -1,7 +1,12 @@
 <?php
 
+require_once(__DIR__ . "/WhiteRabbitSwissKnife.php");
+
+use WhiteRabbitSwissKnife;
+
 class WhiteRabbit
 {
+
    /**
    * Return the letter whose occurrences are the median in a given file.
    * If the letter count is even, the right median element will be taken.
@@ -39,20 +44,33 @@ class WhiteRabbit
         // {char (ASCII) => occurrences}
         $orderedOccurrencesArray = count_chars($parsedFile, 1);
 
-        asort($orderedOccurrencesArray);
+        // index => {char (ASCII), occurrences}
+        $preparedArray = $this->prepareArray($orderedOccurrencesArray);
 
-        $medianIndex = floor(count($orderedOccurrencesArray) / 2);
+        // get the number of occurrences
+        $get = function($elem) { return $elem[1]; };
 
-        $medianLetter = array_keys(array_slice($orderedOccurrencesArray, $medianIndex, 1, true))[0];
+        $swissKnife = new WhiteRabbitSwissKnife($get);
 
-        $occurrences = $orderedOccurrencesArray[$medianLetter];
+        $m = $swissKnife->median($preparedArray);
+
+        $occurrences = $m[1];
 
         // ASCII to char
-        return chr($medianLetter);
+        return chr($m[0]);
     }
 
-    private function findMedianLetterOptimal($parsedFile, &$occurrences)
-    {
+    /*
+     * Prepare to be used within the WhiteRabbitSwissKfine methods.
+     */
+    private function prepareArray($array){
 
+      $new = array();
+
+      foreach($array as $k => $v){
+        array_push($new, array($k, $v));
+      }
+
+      return $new;
     }
 }

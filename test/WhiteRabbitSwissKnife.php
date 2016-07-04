@@ -2,18 +2,28 @@
 
 namespace test;
 
-require_once(__DIR__ . "/../src/select.php");
+require_once(__DIR__ . "/../src/WhiteRabbitSwissKnife.php");
 
 use PHPUnit_Framework_TestCase;
+use WhiteRabbitSwissKnife;
 
-class selectTest extends PHPUnit_Framework_TestCase {
+class WhiteRabbitSwissKnifeTest extends PHPUnit_Framework_TestCase {
+
+  /** @var WhiteRabbitSwissKnife */
+  private $swissKnife;
+
+  public function setUp()
+  {
+      parent::setUp();
+      $this->swissKnife = new WhiteRabbitSwissKnife();
+  }
 
   /**
    * @dataProvider testPartitionProvider
    */
   public function testPartition($array, $p, $arrayExpected, $pivotExpected){
 
-      $pivot = partition($array, 0, count($array) - 1, $p);
+      $pivot = $this->swissKnife->partition($array, 0, count($array) - 1, $p);
 
       $this->assertEquals($pivotExpected, $pivot);
       $this->assertEquals($arrayExpected, $array);
@@ -49,7 +59,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
    */
   public function testSelect($array, $minIndex, $expected){
 
-    $elem = $array[select($array,0, count($array) - 1, $minIndex)];
+    $elem = $array[$this->swissKnife->select($array,0, count($array) - 1, $minIndex)];
 
     $this->assertEquals($expected, $elem);
   }
@@ -81,7 +91,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
    */
   public function testInsertionSort($array, $left, $right, $expectedArray){
 
-    insertionSort($array, $left, $right);
+    $this->swissKnife->insertionSort($array, $left, $right);
 
     $this->assertEquals($expectedArray, $array);
   }
@@ -105,7 +115,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
    */
   public function testPartition5($array, $left, $right, $expectedPos, $expectedElement){
 
-    $pos = partition5($array, $left, $right);
+    $pos = $this->swissKnife->partition5($array, $left, $right);
 
     $elem = $array[$pos];
 
@@ -133,7 +143,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
    */
   public function testPivot($array, $l, $r, $expectedMedianOfMedians){
 
-    $pivot = pivot($array, $l, $r);
+    $pivot = $this->swissKnife->pivot($array, $l, $r);
 
     $this->assertEquals($expectedMedianOfMedians, $array[$pivot]);
   }
@@ -151,7 +161,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
     shuffle($a1);
     $expected1 = $this->pivotHelper($a1);
     $test1 = array(
-      $a1, 0, 14, $expected1
+      $a1, 0, 14, 6
     );
 
     #test2 (Complete + partial section)
@@ -161,7 +171,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
     shuffle($a2);
     $expected2 = $this->pivotHelper($a2);
     $test2 = array(
-      $a2, 0, 7, $expected2
+      $a2, 0, 7, 4
     );
 
     #test3 (Partial section)
@@ -207,7 +217,7 @@ class selectTest extends PHPUnit_Framework_TestCase {
 
     sort($B);
 
-    $medianIndex = (count($B) - 1) / 2;
+    $medianIndex = floor((count($B)) / 2);
 
     return $B[$medianIndex];
   }
