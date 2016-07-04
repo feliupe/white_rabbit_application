@@ -31,14 +31,14 @@ class WhiteRabbit2
 
       while ($amount != 0){
 
-        while ($amount >= $greatestValue){
+        if ($amount < $greatestValue){
 
-          $payment[$greatestValue]++;
-
-          $amount -= $greatestValue;
+          $greatestValue = prev($coins);
         }
 
-        $greatestValue = prev($coins);
+        $payment[$greatestValue] = floor($amount / $greatestValue);
+
+        $amount = $amount % $greatestValue;
       }
 
       return $payment;
